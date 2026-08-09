@@ -13,16 +13,20 @@ async function render() {
   );
 }
 
-test("server-renders the Fourfold feed", async () => {
+test("server-renders the Tetrameter feed", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /Fourfold/);
-  assert.match(html, /A little life, shared slowly\./);
+  assert.match(html, /Tetrameter/);
+  assert.match(html, /Four posts a year from the most important people/);
   assert.match(html, /Recent updates/);
-  assert.match(html, /Designed to have an ending\./);
+  assert.match(html, /Social media that isn’t shitty\./);
+  assert.match(html, /No algorithms/);
+  assert.match(html, /No influencers/);
+  assert.match(html, /Now go outside\./);
+  assert.match(html, /Apply to join/);
   assert.match(html, /That’s everything\./);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
@@ -32,5 +36,5 @@ test("publishes product-specific social metadata", async () => {
   const html = await response.text();
   assert.match(html, /og\.png/);
   assert.match(html, /summary_large_image/);
-  assert.match(html, /Four thoughtful updates a year/);
+  assert.match(html, /Four posts a year from the most important people/);
 });

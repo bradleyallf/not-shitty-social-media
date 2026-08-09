@@ -1,15 +1,16 @@
-# Fourfold
+# Tetrameter
 
-Fourfold is a deliberately quiet social network for seasonal updates among
-friends and family. It is built around a chronological feed, a small circle,
-and four posts per person per year.
+Tetrameter is the prototype name for social media that isn’t shitty: pictures
+and notes from the most important moments in your friends’ lives, four times a
+year. It is built around a chronological feed, recognizable identities, and a
+community that values trust over growth.
 
-This repository currently contains the first product prototype. The interface
-demonstrates the feed, the four-update counter, reactions, a seasonal post
-composer, responsive layouts, and the intentional end of the feed. Data and
-interactions are temporary until accounts and storage are added.
+The current prototype demonstrates the feed, the four-diamond yearly counter,
+reactions, a seasonal post composer, responsive layouts, and the intentional
+end of the feed. Data and interactions are temporary until accounts and storage
+are added.
 
-The living product rules, open questions, and roadmap are in
+The living product rules, name ideas, open questions, and roadmap are in
 [PRODUCT.md](./PRODUCT.md). Put new product ideas there; keep this README focused
 on the project itself.
 
@@ -31,7 +32,11 @@ Then open <http://localhost:3000>.
 - Four-update annual allowance
 - Text updates with a ten-photo product limit
 - Hearts and private-reply affordances
-- No video, ads, recommendations, or public discovery
+- No video, ads, recommendations, anonymity, or public discovery
 
-Authentication, durable posts, photo uploads, invitations, moderation, bot
-prevention, and Instagram importing are intentionally not connected yet.
+The private hosted prototype uses its host’s OpenAI-account access gate. That is
+not the intended product authentication. A real beta should use Google sign-in
+through a supported managed identity provider, alongside community vetting.
+
+Durable posts, photo uploads, invitations, moderation, bot prevention, and
+Instagram importing are intentionally not connected yet.
