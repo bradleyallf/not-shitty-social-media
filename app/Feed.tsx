@@ -94,18 +94,23 @@ export function Feed() {
   const [posts, setPosts] = useState(starterPosts);
   const [remaining, setRemaining] = useState(3);
   const [composerOpen, setComposerOpen] = useState(false);
+  const [applicationOpen, setApplicationOpen] = useState(false);
+  const [applicationPreviewed, setApplicationPreviewed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [caption, setCaption] = useState("");
   const [notice, setNotice] = useState("");
 
   useEffect(() => {
-    if (!composerOpen) return;
+    if (!composerOpen && !applicationOpen) return;
     const close = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setComposerOpen(false);
+      if (event.key === "Escape") {
+        setComposerOpen(false);
+        setApplicationOpen(false);
+      }
     };
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
-  }, [composerOpen]);
+  }, [composerOpen, applicationOpen]);
 
   function reactTo(postId: number) {
     setPosts((current) =>
@@ -156,6 +161,7 @@ export function Feed() {
         <nav className="main-nav" aria-label="Main navigation">
           <a className="nav-active" href="#feed">Feed</a>
           <a href="#rules">The rules</a>
+          <a href="#apply">Apply to join</a>
         </nav>
         <div className="profile-wrap">
           <button
@@ -182,11 +188,7 @@ export function Feed() {
       <main id="top">
         <section className="welcome" aria-labelledby="welcome-heading">
           <div className="welcome-content">
-            <p className="eyebrow">Four times a year</p>
-            <h1 id="welcome-heading">Pictures and notes from the most important moments in your friends’ lives.</h1>
-            <p className="welcome-copy">
-              Not designed to take you away from better things you could be doing.
-            </p>
+            <h1 id="welcome-heading">Four posts a year from the most important people in your life.</h1>
           </div>
           <div className="shoal" aria-hidden="true">
             <span className="fish fish-one" />
@@ -260,23 +262,50 @@ export function Feed() {
             <div className="feed-end">
               <TetrameterMark small />
               <h2>That’s everything.</h2>
-              <p>You’ve seen every update from the people you follow.</p>
+              <p>Now go outside.</p>
             </div>
           </section>
 
           <aside className="right-rail" id="rules">
             <div className="principles-card">
-              <p className="rail-label">The whole deal</p>
               <h2>Social media that isn’t shitty.</h2>
               <ul>
                 <li><span>01</span>Four updates per year</li>
                 <li><span>02</span>Only people you follow</li>
                 <li><span>03</span>No algorithms</li>
                 <li><span>04</span>No ads. No bots.</li>
+                <li><span>05</span>No influencers</li>
               </ul>
             </div>
           </aside>
         </div>
+
+        <section className="apply-section" id="apply" aria-labelledby="apply-title">
+          <div className="apply-mark" aria-hidden="true">
+            <span className="fish fish-apply-one" />
+            <span className="fish fish-apply-two" />
+            <TetrameterMark />
+          </div>
+          <div className="apply-copy">
+            <p className="eyebrow">Apply to join</p>
+            <h2 id="apply-title">A social network with a front door.</h2>
+            <p>
+              Your application will be manually reviewed by real humans to make
+              sure you’re a real person who knows people here and will positively
+              contribute to our intentional community.
+            </p>
+            <p>
+              There are other places on the internet to be anonymous. Tetrameter
+              is not one of those places.
+            </p>
+          </div>
+          <div className="apply-action">
+            <p>Applications aren’t open yet. Preview the questions we plan to ask.</p>
+            <button type="button" onClick={() => { setApplicationPreviewed(false); setApplicationOpen(true); }}>
+              Preview the application
+            </button>
+          </div>
+        </section>
       </main>
 
       <footer>
@@ -310,6 +339,44 @@ export function Feed() {
                 <button className="publish-button" type="submit" disabled={!caption.trim()}>Share with my circle</button>
               </div>
             </form>
+          </section>
+        </div>
+      )}
+
+      {applicationOpen && (
+        <div className="modal-backdrop" role="presentation" onMouseDown={() => setApplicationOpen(false)}>
+          <section className="composer application-modal" role="dialog" aria-modal="true" aria-labelledby="application-title" onMouseDown={(event) => event.stopPropagation()}>
+            <button className="modal-close" type="button" onClick={() => setApplicationOpen(false)} aria-label="Close application preview">×</button>
+            {!applicationPreviewed ? (
+              <>
+                <p className="eyebrow">Application preview</p>
+                <h2 id="application-title">Tell us who you are.</h2>
+                <p>Nothing entered here is submitted or saved in this prototype.</p>
+                <form onSubmit={(event) => { event.preventDefault(); setApplicationPreviewed(true); }}>
+                  <label>
+                    The name your friends know you by
+                    <input name="recognizedName" required placeholder="Your name" />
+                  </label>
+                  <label>
+                    Who do you know here?
+                    <input name="connection" required placeholder="Name one or two people" />
+                  </label>
+                  <label>
+                    What would you contribute to this community?
+                    <textarea name="contribution" required placeholder="A short, honest answer" />
+                  </label>
+                  <button className="publish-button" type="submit">Finish preview</button>
+                </form>
+              </>
+            ) : (
+              <div className="application-complete">
+                <TetrameterMark />
+                <p className="eyebrow">That’s the idea</p>
+                <h2 id="application-title">Reviewed by people, not an algorithm.</h2>
+                <p>When applications open, your answers and community connection will be reviewed by a real human.</p>
+                <button className="publish-button" type="button" onClick={() => setApplicationOpen(false)}>Done</button>
+              </div>
+            )}
           </section>
         </div>
       )}

@@ -4,7 +4,7 @@ import { Feed } from "./Feed";
 export const metadata: Metadata = {
   title: "Tetrameter — Social media that isn’t shitty",
   description:
-    "Pictures and notes from the most important moments in your friends’ lives, four times a year.",
+    "Four posts a year from the most important people in your life.",
 };
 
 export default function Home() {

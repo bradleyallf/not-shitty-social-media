@@ -20,10 +20,13 @@ test("server-renders the Tetrameter feed", async () => {
 
   const html = await response.text();
   assert.match(html, /Tetrameter/);
-  assert.match(html, /Pictures and notes from the most important moments/);
+  assert.match(html, /Four posts a year from the most important people/);
   assert.match(html, /Recent updates/);
   assert.match(html, /Social media that isn’t shitty\./);
   assert.match(html, /No algorithms/);
+  assert.match(html, /No influencers/);
+  assert.match(html, /Now go outside\./);
+  assert.match(html, /Apply to join/);
   assert.match(html, /That’s everything\./);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
@@ -33,5 +36,5 @@ test("publishes product-specific social metadata", async () => {
   const html = await response.text();
   assert.match(html, /og\.png/);
   assert.match(html, /summary_large_image/);
-  assert.match(html, /Pictures and notes from your friends’ lives/);
+  assert.match(html, /Four posts a year from the most important people/);
 });

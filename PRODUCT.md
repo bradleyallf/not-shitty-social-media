@@ -107,6 +107,45 @@ account-recovery work. It should be an entry method, not proof that an account
 is human; invitations, rate limits, abuse monitoring, and lightweight review
 will still be needed.
 
+### Authentication recommendation
+
+For the first private beta, use a managed authentication service with **Google
+as the first sign-in method**. Do not build or store Tetrameter passwords yet.
+Owning passwords also means owning password hashing, reset emails, session
+security, breached-password defenses, multifactor authentication, and account
+recovery. Those responsibilities add risk without testing the product's unique
+idea.
+
+Google sign-in should establish an account, not automatically grant community
+access. Keep these as separate states:
+
+1. A person authenticates with Google.
+2. They complete the recognizable-name and community-connection application.
+3. Existing members vouch for them and a human reviews the application.
+4. Approval unlocks the feed.
+
+Later, add an email magic-link or passkey option for people who do not want to
+use Google. A custom username-and-password system should only be added if users
+demonstrate that they need it.
+
+### Recommended next milestone
+
+Build the real **apply → vouch → review → approve → enter** flow before building
+Instagram import or native apps. It is both the account foundation and the most
+distinctive test of Tetrameter's trust-first premise. The smallest useful beta
+would include:
+
+- Google sign-in through a managed provider
+- applicant, sponsor, and reviewer roles
+- an application stored privately with minimal personal data
+- invitations or two member vouches
+- a small human review queue
+- approved, waitlisted, rejected, suspended, and deleted account states
+- audit history for review decisions
+- clear retention and deletion rules for rejected applications
+
+Once that boundary works, add durable posts and photo uploads behind it.
+
 ### Phase 3 — Portability and trust
 
 - Instagram import for a member's own photos and captions

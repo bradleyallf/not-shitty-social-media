@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: "Social media that isn’t shitty.",
     openGraph: {
       title: "Tetrameter",
-      description: "Pictures and notes from your friends’ lives, four times a year.",
+      description: "Four posts a year from the most important people in your life.",
       type: "website",
       images: [{ url: socialImage, width: 1731, height: 909, alt: "Tetrameter — social media that isn’t shitty." }],
     },
