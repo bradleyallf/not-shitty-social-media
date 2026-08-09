@@ -67,13 +67,13 @@ const starterPosts: Post[] = [
   },
 ];
 
-function FourfoldMark({ small = false }: { small?: boolean }) {
+function TetrameterMark({ small = false }: { small?: boolean }) {
   return (
     <span className={small ? "mark mark-small" : "mark"} aria-hidden="true">
-      <i />
-      <i />
-      <i />
-      <i />
+      <i className="mark-top" />
+      <i className="mark-right" />
+      <i className="mark-bottom" />
+      <i className="mark-left" />
     </span>
   );
 }
@@ -83,7 +83,7 @@ function Lives({ count }: { count: number }) {
     <div className="lives" aria-label={`${count} of 4 updates remaining this year`}>
       {[0, 1, 2, 3].map((life) => (
         <span className={life < count ? "life life-full" : "life"} key={life}>
-          <i>♥</i>
+          <i />
         </span>
       ))}
     </div>
@@ -149,14 +149,13 @@ export function Feed() {
   return (
     <div className="site-shell">
       <header className="topbar">
-        <a className="brand" href="#top" aria-label="Fourfold home">
-          <FourfoldMark />
-          <span>fourfold</span>
+        <a className="brand" href="#top" aria-label="Tetrameter home">
+          <TetrameterMark />
+          <span>tetrameter</span>
         </a>
         <nav className="main-nav" aria-label="Main navigation">
-          <a className="nav-active" href="#feed">Home</a>
-          <a href="#people">People</a>
-          <a href="#about">About</a>
+          <a className="nav-active" href="#feed">Feed</a>
+          <a href="#rules">The rules</a>
         </nav>
         <div className="profile-wrap">
           <button
@@ -182,13 +181,19 @@ export function Feed() {
 
       <main id="top">
         <section className="welcome" aria-labelledby="welcome-heading">
-          <div>
-            <p className="eyebrow">Your people, lately</p>
-            <h1 id="welcome-heading">A little life, shared slowly.</h1>
+          <div className="welcome-content">
+            <p className="eyebrow">Four times a year</p>
+            <h1 id="welcome-heading">Pictures and notes from the most important moments in your friends’ lives.</h1>
             <p className="welcome-copy">
-              No noise, no strangers, no catching up to do. Just the latest from
-              the people you chose.
+              Not designed to take you away from better things you could be doing.
             </p>
+          </div>
+          <div className="shoal" aria-hidden="true">
+            <span className="fish fish-one" />
+            <span className="fish fish-two" />
+            <span className="fish fish-three" />
+            <span className="fish fish-four" />
+            <span className="fish fish-five" />
           </div>
           <div className="season-card">
             <div className="season-card-top">
@@ -204,33 +209,6 @@ export function Feed() {
         </section>
 
         <div className="page-grid">
-          <aside className="left-rail" id="people">
-            <div className="rail-card">
-              <p className="rail-label">Your circle</p>
-              <a className="rail-row rail-row-active" href="#feed">
-                <span className="rail-icon">⌂</span>
-                <span>All updates</span>
-                <b>{posts.length}</b>
-              </a>
-              <a className="rail-row" href="#favorites">
-                <span className="rail-icon">♡</span>
-                <span>Closest people</span>
-                <b>12</b>
-              </a>
-              <a className="rail-row" href="#saved">
-                <span className="rail-icon">◇</span>
-                <span>Saved moments</span>
-              </a>
-            </div>
-            <div className="quiet-note">
-              <FourfoldMark small />
-              <p>
-                <strong>You’re all caught up.</strong><br />
-                There are no suggested posts here. When you reach the end, it ends.
-              </p>
-            </div>
-          </aside>
-
           <section className="feed" id="feed" aria-label="Updates from your circle">
             <div className="feed-heading">
               <h2>Recent updates</h2>
@@ -280,44 +258,30 @@ export function Feed() {
               </article>
             ))}
             <div className="feed-end">
-              <FourfoldMark small />
+              <TetrameterMark small />
               <h2>That’s everything.</h2>
               <p>You’ve seen every update from the people you follow.</p>
             </div>
           </section>
 
-          <aside className="right-rail" id="about">
+          <aside className="right-rail" id="rules">
             <div className="principles-card">
-              <p className="rail-label">A gentler agreement</p>
-              <h2>Designed to have an ending.</h2>
+              <p className="rail-label">The whole deal</p>
+              <h2>Social media that isn’t shitty.</h2>
               <ul>
                 <li><span>01</span>Four updates per year</li>
                 <li><span>02</span>Only people you follow</li>
-                <li><span>03</span>Chronological, always</li>
-                <li><span>04</span>No ads, bots, or video</li>
+                <li><span>03</span>No algorithms</li>
+                <li><span>04</span>No ads. No bots.</li>
               </ul>
-              <a href="#manifesto">Why Fourfold exists →</a>
-            </div>
-            <div className="invite-card">
-              <p className="rail-label">Your circle</p>
-              <h3>86 of 1,000 people</h3>
-              <div className="people-stack" aria-hidden="true">
-                <span style={{ background: "#78865f" }}>JN</span>
-                <span style={{ background: "#b27c63" }}>CB</span>
-                <span style={{ background: "#788ca1" }}>RL</span>
-                <span>+83</span>
-              </div>
-              <button type="button" onClick={() => setNotice("Invite links will arrive with sign-in.")}>
-                Invite someone you know
-              </button>
             </div>
           </aside>
         </div>
       </main>
 
       <footer>
-        <a className="brand footer-brand" href="#top"><FourfoldMark small /> fourfold</a>
-        <p>Made for keeping up, not keeping you here.</p>
+        <a className="brand footer-brand" href="#top"><TetrameterMark small /> tetrameter</a>
+        <p>Not designed to take you away from better things.</p>
         <div><a href="#privacy">Privacy</a><a href="#principles">Principles</a><a href="#help">Help</a></div>
       </footer>
 

@@ -22,18 +22,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: base,
-    title: "Fourfold",
-    description: "A quieter place to keep up with the people you love.",
+    title: "Tetrameter",
+    description: "Social media that isn’t shitty.",
     openGraph: {
-      title: "Fourfold",
-      description: "Four thoughtful updates a year, shared only with the people you choose.",
+      title: "Tetrameter",
+      description: "Pictures and notes from your friends’ lives, four times a year.",
       type: "website",
-      images: [{ url: socialImage, width: 1733, height: 907, alt: "Fourfold — A little life, shared slowly." }],
+      images: [{ url: socialImage, width: 1731, height: 909, alt: "Tetrameter — social media that isn’t shitty." }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Fourfold",
-      description: "A little life, shared slowly.",
+      title: "Tetrameter",
+      description: "Social media that isn’t shitty.",
       images: [socialImage],
     },
   };

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Feed } from "./Feed";
 
 export const metadata: Metadata = {
-  title: "Fourfold — A quieter place for your people",
+  title: "Tetrameter — Social media that isn’t shitty",
   description:
-    "Four thoughtful updates a year, shared only with the people you choose.",
+    "Pictures and notes from the most important moments in your friends’ lives, four times a year.",
 };
 
 export default function Home() {

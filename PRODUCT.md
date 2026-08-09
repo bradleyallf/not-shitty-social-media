@@ -1,11 +1,11 @@
-# Fourfold product notes
+# Tetrameter product notes
 
 Status: working product brief. This is the place to add, revise, and debate the
 rules as the idea develops.
 
 ## The idea
 
-Fourfold is a place to check in on friends and family briefly, then leave. It
+Tetrameter is a place to check in on friends and family briefly, then leave. It
 brings social media back to its original useful job: sharing photos and life
 updates with people we actually know.
 
@@ -13,13 +13,22 @@ The format is closer to a seasonal letter or family holiday card than a content
 platform. Each person gets four substantial updates per year. Friends can see
 what changed, send some love, and be done.
 
-Working promise: **A little life, shared slowly.**
+Working promise: **Social media that isn’t shitty.**
 
-Working name: **Fourfold**. It connects the four annual updates, four seasons,
-and the four-part “lives remaining” mark. The name is provisional until domain
-and trademark checks are complete. “Vivaldi” remains a useful creative
-reference, but is already strongly associated with the composer and the Vivaldi
-web browser.
+Prototype name: **Tetrameter**. It carries the four-part cadence while opening a
+visual world around neon tetra fish, shoals, shallow water, nature, and a touch
+of neon festival energy. The four-part “lives remaining” mark is four separate
+diamonds arranged as a larger diamond. The name is provisional until domain and
+trademark checks are complete.
+
+Other name ideas to keep in the ideation pool:
+
+- **Shoalhouse** — communal, protective, and connected to the fish/shoal visual
+  language.
+- **Vivaldi** — a useful four-seasons reference, though already strongly
+  associated with the composer and the Vivaldi web browser.
+- **Fourfold** — directly communicates four and supplied the first prototype
+  name.
 
 ## Product principles
 
@@ -37,7 +46,8 @@ web browser.
 ## Rules we have committed to
 
 - A person can publish no more than **four posts per calendar year**.
-- The remaining allowance is always visible as four heart-like “lives.”
+- The remaining allowance is always visible as four diamond “lives,” arranged
+  together as a larger diamond.
 - The home feed is **reverse chronological**. There is no engagement ranking.
 - People only see posts from accounts they explicitly follow.
 - An account can follow no more than **1,000 people**.
@@ -46,6 +56,12 @@ web browser.
 - Video is not supported.
 - A post contains a caption and up to **10 photos**.
 - A completed feed ends clearly; the product does not substitute other content.
+- There is **no anonymous participation**. A member uses their real name or the
+  name their friends genuinely know them by. The product is not a place for
+  anonymous shitposting.
+- New members are subject to **community vetting** before joining. The exact
+  mechanism is still open, but keeping bots and impersonators out takes
+  priority over frictionless growth.
 
 ## Decisions still open
 
@@ -59,6 +75,9 @@ web browser.
 - Are hearts useful, or should every response be private? The prototype includes
   both so the emotional temperature can be tested.
 - What counts as “someone you know” for invitations and identity checks?
+- How many existing members must vouch for a new person, and what accountability
+  does a sponsor have if the invited account is abusive or fake?
+- How should members challenge an impersonator or a name nobody recognizes?
 - Are profiles discoverable by name, invite-only, or both?
 - What is the minimum age and family/child-photo policy?
 - What happens to a feed when someone deletes an account or changes a follow?
@@ -72,9 +91,12 @@ language, seasonal post format, and explicit end of feed feel genuinely calmer.
 
 ### Phase 2 — Small private beta
 
-- Google sign-in through a managed authentication provider
+- Google sign-in through a managed authentication provider. The OpenAI sign-in
+  currently visible on the hosted prototype belongs to the private preview
+  host; it is not the proposed product sign-in.
 - Private profiles and follow relationships
-- Invitation links and basic human review for new members
+- Invitation links, community vouching, and basic human review for new members
+- Recognizable-name policy and an impersonation challenge flow
 - Durable text posts and photo storage
 - Enforced annual allowance and 10-photo limit
 - Chronological feed, hearts, private replies, blocking, and reporting
